@@ -28,7 +28,7 @@ function setup() {
 
   addFood = createButton("Add Food");
   addFood.position(800,95);
-  addFood.mousePressed(addFood)
+  addFood.mousePressed(addFoodS)
 
   
 
@@ -61,7 +61,7 @@ function draw() {
 
 
 //function to read food Stock
-function readStock(){
+function readStock(data){
   foodS = data.val()
   foodObj.updateFoodStock(foodS)
 }
@@ -70,7 +70,7 @@ function readStock(){
 function feedDog(){
   dog.addImage(happyDog)
 
-  foodObj.updateFoodStock(foodStock(foodObj.getFoodStock()-1))
+  foodObj.updateFoodStock(foodObj.getFoodStock()-1)
   database.ref('/').update({
     Food:foodObj.getFoodStock(),
     FeedTime:hour()
@@ -79,7 +79,7 @@ function feedDog(){
 }
 
 //function to add food in stock
-function addFood(){
+function addFoodS(){
   foodS=+
   database.ref('/').update({
     
